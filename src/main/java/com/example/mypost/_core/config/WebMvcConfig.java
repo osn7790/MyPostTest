@@ -19,7 +19,10 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 .addPathPatterns("/***")
                 .excludePathPatterns(
                         "/", "/login", "/signup",
-                        "/boards/{id:\\d+}/detail"
+                        "/login-form","/signup-form",
+                        "/boards/{id:\\d+}/detail",
+                        "/index","/error"
+
                 );
     }
 

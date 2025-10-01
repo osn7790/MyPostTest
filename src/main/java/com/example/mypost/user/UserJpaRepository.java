@@ -12,7 +12,7 @@ public interface UserJpaRepository extends JpaRepository <User, Long> {
     Optional<User> findByUsernameAndPassword(@Param("username") String username,
                                              @Param("password") String password);
 
-    @Query("SELECT u FROM User u WHERE u.username = : username")
+    @Query("SELECT u FROM User u WHERE u.username = :username")
     Optional<User> findByUsername(@Param("username") String username);
 
 }

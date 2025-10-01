@@ -52,26 +52,33 @@ public class UserController {
     }
 
 
-    @PostMapping("/signup")
+    @PostMapping("/user/signup")
     public String signUp(UserRequest.SignUpDTO signUpDTO) {
 
         signUpDTO.validate();
         userService.signUp(signUpDTO);
-        return "redirect:/login-form";
+        return "redirect:/user/login";
 
     }
 
-    @GetMapping("/signup-form")
+    @GetMapping("/user/login")
+    public String loginFrom() {
+        log.info("로그인 요첨 폼");
+        return "user/login-form";
+    }
+
+    @GetMapping("/user/signup")
     public String signUpForm() {
         log.info("회원 가입 요청 폼");
         return "user/signup-form";
     }
 
-    @PostMapping("/login")
+    @PostMapping("user/login")
     public String login(UserRequest.LoginDTO loginDTO,
                         HttpServletResponse res) {
 
         loginDTO.validate();
+        log.info("로그인 유효성확인");
         User user = userService.login(loginDTO);
 
         String token = JwtUtil.create(user);
@@ -81,7 +88,7 @@ public class UserController {
 
     }
 
-    @GetMapping("logout")
+    @GetMapping("/logout")
     public String logout(HttpServletResponse res) {
         res.addHeader(Define.SET_COOKIE, CookieUtil.delete(Define.ACCESS_TOKEN, false).toString());
         return "redirect:/";

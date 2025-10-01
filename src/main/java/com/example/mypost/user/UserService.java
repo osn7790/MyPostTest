@@ -21,6 +21,7 @@ public class UserService {
                 .ifPresent(user1 -> {
                     throw new Exception400("이미 존재하는 사용자명입니다");
                 });
+
         return userJpaRepository.save(signUpDTO.toEntity());
     }
 

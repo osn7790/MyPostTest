@@ -13,19 +13,19 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/mypost?useSSl=false&serverTimezone=Asia/Seoul
+    url: jdbc:mysql://localhost:3306/mypost?useSSL=false&serverTimezone=Asia/Seoul
     username: root
     password: asd1234
 
-  h2:
-    console:
-      enabled: true
+#  h2:
+#    console:
+#      enabled: true
 
-  sql:
-    init:
-      mode: always
-      data-locations:
-        - classpath:db/data.sql
+#  sql:
+#    init:
+#      mode: always
+#      data-locations:
+#        - classpath:db/data.sql
 
   jpa:
     open-in-view: true
