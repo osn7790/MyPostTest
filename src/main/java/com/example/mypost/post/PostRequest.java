@@ -1,5 +1,6 @@
 package com.example.mypost.post;
 
+import com.example.mypost.user.LoginUser;
 import com.example.mypost.user.User;
 import lombok.Data;
 

@@ -35,4 +35,8 @@ public class Post {
     @Transient
     private boolean isPostOwner;
 
+    public boolean isOwner(Long checkUserID) {
+        return this.user.getId().equals(checkUserID);
+    }
+
 }

@@ -11,6 +11,16 @@ server:
       com.example: DEBUG
 
 spring:
+  mustache:
+    suffix: .mustache
+    prefix: classpath:/templates/
+    cache: false
+    charset: UTF-8
+    servlet:
+      # 세션과 요청 속성을 템플릿에서 사용 가능하게 함
+      expose-session-attributes: true
+      expose-request-attributes: true
+
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/mypost?useSSL=false&serverTimezone=Asia/Seoul

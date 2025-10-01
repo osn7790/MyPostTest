@@ -93,4 +93,10 @@ public class UserController {
         res.addHeader(Define.SET_COOKIE, CookieUtil.delete(Define.ACCESS_TOKEN, false).toString());
         return "redirect:/";
     }
+
+    @GetMapping("/")
+    public String index(Model model, @RequestAttribute(value = Define.LOGIN_USER, required = false) LoginUser loginUser) {
+        return "index";
+    }
+
 }
